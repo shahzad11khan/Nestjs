@@ -1,0 +1,16 @@
+http://localhost:3000/headmaster
+
+{
+  "userName": "john_doe",
+  "email": "john@example.com",
+  "password": "mysecretpassword",
+  "cnic": "12345-1234567-1",
+  "phoneNumber": "03001234567"
+}
+
+
+http://localhost:3000/auth/login
+{
+    "email": "john@example.com",
+    "password": "mysecretpassword"
+}
