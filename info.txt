@@ -28,7 +28,7 @@ student login
   "password": "123456"
 }
 
-first login headmaster
+login headmaster
 
 pass --> headers--> authorization of the login headmaster
 
@@ -48,7 +48,7 @@ http://localhost:3000/teacher
   "image": "ali.jpg"
 }
 
-first login teacher or headmaster
+login teacher or headmaster
 pass --> headers--> authorization of the login headmaster or teacher
 
 http://localhost:3000/student
@@ -66,5 +66,21 @@ http://localhost:3000/student
   "guardianEmail": "guardian@example.com",
   "address": "Lahore, Pakistan"
 }
+
+http://localhost:3000/attendance/allStudent
+[
+  {
+    "userType": "Student",
+    "userName": "Ali",
+    "userId": "student123",
+    "status": "Present"
+  },
+  {
+    "userType": "Student",
+    "userName": "Ahmed",
+    "userId": "student124",
+    "status": "Absent"
+  }
+]
 
 

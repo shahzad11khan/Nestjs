@@ -6,6 +6,7 @@ import { StudentModule } from './student/student.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { HeadmasterModule } from './headmaster/headmaster.module';
 import { AuthModule } from './auth/auth.module';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
     TeacherModule,
     HeadmasterModule,
     AuthModule,
+    AttendanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
