@@ -10,7 +10,61 @@ http://localhost:3000/headmaster
 
 
 http://localhost:3000/auth/login
+
 {
     "email": "john@example.com",
     "password": "mysecretpassword"
 }
+
+teacher login
+{
+  "email": "ali@example.com",
+  "password": "securePassword123"
+}
+
+student login
+{
+ "email": "guardian@example.com",
+  "password": "123456"
+}
+
+first login headmaster
+
+pass --> headers--> authorization of the login headmaster
+
+http://localhost:3000/teacher 
+
+{
+  "userName": "Ali Khan",
+  "email": "ali@example.com",
+  "password": "securePassword123",
+  "cnic": "35202-1234567-8",
+  "phoneNumber": "03001234567",
+  "salary": "50000",
+  "status": "active",
+  "address": "Lahore",
+  "bankName": "UBL",
+  "accountNumber": "9876543210",
+  "image": "ali.jpg"
+}
+
+first login teacher or headmaster
+pass --> headers--> authorization of the login headmaster or teacher
+
+http://localhost:3000/student
+
+
+{
+  "name": "Ahmed Raza",
+  "age": 12,
+  "class": "6th",
+  "classId": "cls123",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "guardianName": "Raza Ahmed",
+  "guardianPhone": "03001234567",
+  "guardianEmail": "guardian@example.com",
+  "address": "Lahore, Pakistan"
+}
+
+

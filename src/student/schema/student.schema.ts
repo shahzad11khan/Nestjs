@@ -24,7 +24,7 @@ export class Student {
     @Prop({ required: true })
     guardianPhone: string;
     @Prop({ required: true })
-    guardianEmail: string;
+    email: string;
     @Prop()
     address?: string;
 }
