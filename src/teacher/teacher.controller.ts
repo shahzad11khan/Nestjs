@@ -9,7 +9,7 @@ export class TeacherController {
     @UseGuards(AuthGuard)
     @Post()
     async addTeacher(@Body() data:Partial<Teacher>,@Req() req:Request){
-        const HeadmasterId = req['user']._id;
+        const HeadmasterId = req['user'].userId;
         data.HeadmasterId=HeadmasterId;
         return await this.teacherService.createTeacher(data);
     }
