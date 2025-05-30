@@ -44,6 +44,8 @@ http://localhost:3000/teacher
   "status": "active",
   "address": "Lahore",
   "bankName": "UBL",
+  "classId": "Lahore",
+  "class": "1st",
   "accountNumber": "9876543210",
   "image": "ali.jpg"
 }
@@ -57,8 +59,6 @@ http://localhost:3000/student
 {
   "name": "Ahmed Raza",
   "age": 12,
-  "class": "6th",
-  "classId": "cls123",
   "password": "123456",
   "confirmPassword": "123456",
   "guardianName": "Raza Ahmed",
@@ -82,5 +82,24 @@ http://localhost:3000/attendance/allStudent
     "status": "Absent"
   }
 ]
+
+http://localhost:3000/class
+{
+  "name": "1st", 
+}
+
+
+get 
+http://localhost:3000/headmaster/all
+
+http://localhost:3000/teacher/all --> first login teacher
+
+http://localhost:3000/student/all --> first login teacher
+
+http://localhost:3000/attendance/allAttendance --> first login teacher
+
+http://localhost:3000/class  --> first login headmaster
+
+
 
 

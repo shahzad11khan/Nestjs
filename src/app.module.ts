@@ -7,6 +7,7 @@ import { TeacherModule } from './teacher/teacher.module';
 import { HeadmasterModule } from './headmaster/headmaster.module';
 import { AuthModule } from './auth/auth.module';
 import { AttendanceModule } from './attendance/attendance.module';
+import { ClassModule } from './class/class.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AttendanceModule } from './attendance/attendance.module';
     HeadmasterModule,
     AuthModule,
     AttendanceModule,
+    ClassModule,
   ],
   controllers: [AppController],
   providers: [AppService],

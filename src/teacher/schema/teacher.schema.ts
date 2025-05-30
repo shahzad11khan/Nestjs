@@ -17,6 +17,10 @@ export class Teacher {
     HeadmasterId: string;
     @Prop({ required: true })
     phoneNumber: string;
+    @Prop({ required: true })
+    classId: string;
+    @Prop({ required: true })
+    ClassName: string;
     @Prop()
     address?: string;
     @Prop()

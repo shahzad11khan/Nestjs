@@ -7,8 +7,8 @@ import { Model } from 'mongoose';
 @Injectable()
 export class HeadmasterService {
     constructor(@InjectModel(Headmaster.name)private headmasterModel:Model<HeadmasterDocument>){}
-    async createHeadmaster(data:Partial<Headmaster>)
-    :Promise<{message:string;headmaster:Headmaster}>{
+// for create headmaster
+    async createHeadmaster(data:Partial<Headmaster>):Promise<{message:string;headmaster:Headmaster}>{
         try {
             if(data.password) data.password = await bcrypt.hash(data.password,10);
             if(data.userName) data.userName = data.userName.toUpperCase();
@@ -19,5 +19,11 @@ export class HeadmasterService {
         } catch (error) {
              throw new Error(error);
         }
+    }
+// get all headmaster
+    async getAllHeadmaster():Promise<Headmaster[]>{
+        const headmaster = await this.headmasterModel.find().exec();
+        if(!headmaster) throw new Error('Failed to get headmaster');
+        return headmaster;
     }
 }

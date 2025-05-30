@@ -13,6 +13,10 @@ export class Attendance {
 
   @Prop({ required: true })
   userId: string;
+  @Prop({ required: true })
+  classId: string;
+  @Prop({ required: true })
+  className: string;  
 
   @Prop({ default: () => new Date() })
   date: Date;

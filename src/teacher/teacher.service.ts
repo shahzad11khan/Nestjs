@@ -7,6 +7,7 @@ import { Model } from 'mongoose';
 @Injectable()
 export class TeacherService {
     constructor(@InjectModel(Teacher.name) private teacherModel: Model<TeacherDocument>){}
+    // for create teacher
     async createTeacher(data:Partial<Teacher>):Promise<{message:string;teacher:Teacher}>{
         try {
               if(data.password)data.password = await bcrypt.hash(data.password, 10);
@@ -18,5 +19,11 @@ export class TeacherService {
         } catch (error) {
                 throw new Error(error);
         }
+    }
+// get all teacher
+    async getAllTeacher():Promise<Teacher[]>{
+        const teacher = await this.teacherModel.find().exec();
+        if(!teacher) throw new Error('Failed to get teacher');
+        return teacher;
     }
 }

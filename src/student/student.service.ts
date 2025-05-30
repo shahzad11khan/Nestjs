@@ -9,12 +9,13 @@ export class StudentService {
     constructor(
         @InjectModel(Student.name) private studentModel: Model<StudentDocument>
     ) { }
-    async createStudent(data: Partial<Student>):
-        // Promise<Student>
+
+    // for create student
+    async createStudent(data: Partial<Student>):// Promise<Student>
         Promise<{ message: string; student: Student }> {
         try {
-             if(data.password)data.password = await bcrypt.hash(data.password, 10);
-              if(data.name) data.name = data.name.toUpperCase();
+            if (data.password) data.password = await bcrypt.hash(data.password, 10);
+            if (data.name) data.name = data.name.toUpperCase();
             const newStudent = new this.studentModel(data); //just create and object
             const savedStudent = await newStudent.save(); //save your object in the student schema database
             if (!savedStudent) throw new Error('Failed to create student');
@@ -25,5 +26,11 @@ export class StudentService {
         } catch (error) {
             throw new Error(error);
         }
+    }
+    // get all students
+    async getAllStudent(): Promise<Student[]> {
+        const student = await this.studentModel.find().exec();
+        if (!student) throw new Error('Failed to get student');
+        return student;
     }
 }
