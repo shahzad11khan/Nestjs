@@ -8,6 +8,7 @@ import { HeadmasterModule } from './headmaster/headmaster.module';
 import { AuthModule } from './auth/auth.module';
 import { AttendanceModule } from './attendance/attendance.module';
 import { ClassModule } from './class/class.module';
+import { HomeworkModule } from './homework/homework.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ClassModule } from './class/class.module';
     AuthModule,
     AttendanceModule,
     ClassModule,
+    HomeworkModule,
   ],
   controllers: [AppController],
   providers: [AppService],

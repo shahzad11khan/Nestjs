@@ -26,4 +26,26 @@ export class TeacherService {
         if(!teacher) throw new Error('Failed to get teacher');
         return teacher;
     }
+
+    // get teacher by id
+    async getTeacherById(id:string):Promise<Teacher | null>{
+        try {
+            const teacher = await this.teacherModel.findById(id).exec();
+            if(!teacher) throw new Error('Failed to get teacher');
+            return teacher;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+    // update teacher by id
+    async updateTeacherById(id:string,data:Partial<Teacher>):Promise<{message:string;teacher:Teacher | null}>{
+        try {
+            const updateTeacher = await this.teacherModel.findByIdAndUpdate(id,data,{new:true}).exec();
+            if(!updateTeacher) throw new Error('Failed to update teacher');
+            return {message:'Teacher updated successfully',teacher:updateTeacher};
+        } catch (error) {
+         throw new Error(error)   
+        }
+        
+    }
 }

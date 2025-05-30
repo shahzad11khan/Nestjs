@@ -26,4 +26,11 @@ export class StudentController {
     async getAllStudent(@Req() req:Request):Promise<Student[]>{
         return await this.studentService.getAllStudent();
     }
+
+    // get all student which is match with the class
+    @UseGuards(AuthGuard)
+    @Get('class')
+    async getStudentByClassId(@Req() req:Request):Promise<Student[]>{
+        return await this.studentService.getStudentByClassId(req['user'].classId);
+    }
 }

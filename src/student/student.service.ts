@@ -33,4 +33,11 @@ export class StudentService {
         if (!student) throw new Error('Failed to get student');
         return student;
     }
+
+    // get all student which is match with the class
+    async getStudentByClassId(id: string): Promise<Student[]> {
+        const student = await this.studentModel.find({ classId: id }).exec();
+        if (!student) throw new Error('Failed to get student');
+        return student;
+    }
 }
