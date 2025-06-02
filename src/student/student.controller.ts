@@ -32,5 +32,5 @@ export class StudentController {
     @Get('class')
     async getStudentByClassId(@Req() req:Request):Promise<Student[]>{
         return await this.studentService.getStudentByClassId(req['user'].classId);
-    }
+    }  
 }

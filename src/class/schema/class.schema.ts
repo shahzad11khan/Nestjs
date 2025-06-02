@@ -6,7 +6,8 @@ export type ClassDocument = Class & Document;
 export class Class {
     @Prop({required:true})
     name:string
-
+    @Prop()
+    section:string
     @Prop({required:true})
     teacherId:string
 }
