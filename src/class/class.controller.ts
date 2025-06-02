@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { ClassService } from './class.service';
 import { AuthGuard } from 'src/guard/auth/auth.guard';
 import { Class } from './schema/class.schema';
@@ -9,7 +9,9 @@ export class ClassController {
     // create class
     @UseGuards(AuthGuard)
     @Post()
-    async createClass(@Body() data:Partial<Class>):Promise<{message:string;class:Class}>{
+    async createClass(@Body() data:Partial<Class>,@Req() req:Request):Promise<{message:string;class:Class}>{
+        const teacherId = req['user'].userId;
+        data.teacherId=teacherId;
         return await this.classService.createClass(data);
     }
     // get all class
