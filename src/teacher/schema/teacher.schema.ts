@@ -21,6 +21,8 @@ export class Teacher {
     classId: string;
     @Prop({ required: true })
     ClassName: string;
+    @Prop({ required: true })
+    section: string;
     @Prop()
     address?: string;
     @Prop()

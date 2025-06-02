@@ -9,7 +9,7 @@ export class ClassController {
     // create class
     @UseGuards(AuthGuard)
     @Post()
-    async createClass(@Body() data:Partial<Class>,@Req() req:Request):Promise<{message:string;class:Class}>{
+    async createClass(@Body() data:Partial<Class>,@Req() req:Request):Promise<{message:string;class:Class}>{ 
         const teacherId = req['user'].userId;
         data.teacherId=teacherId;
         return await this.classService.createClass(data);
