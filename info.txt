@@ -86,6 +86,7 @@ http://localhost:3000/attendance/allStudent
 http://localhost:3000/class
 {
   "name": "1st", 
+  "section":"A"
 }
 
 
