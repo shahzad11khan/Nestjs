@@ -34,21 +34,25 @@ pass --> headers--> authorization of the login headmaster
 
 http://localhost:3000/teacher 
 
+
 {
-  "userName": "Ali Khan",
-  "email": "ali@example.com",
-  "password": "securePassword123",
-  "cnic": "35202-1234567-8",
+  "userName": "shahzad khan",
+  "email": "shahzadk@example.com",
+  "password": "12345678",
+  "cnic": "13345-6880992-7",
   "phoneNumber": "03001234567",
+  "classId": "class124",
+  "ClassName": "Grade 6",
+  "section": "B",
   "salary": "50000",
   "status": "active",
-  "address": "Lahore",
-  "bankName": "UBL",
-  "classId": "Lahore",
-  "class": "1st",
-  "accountNumber": "9876543210",
-  "image": "ali.jpg"
+  "address": "123 Street, City",
+  "bankName": "ABC Bank",
+  "accountNumber": "1234567890123",
+  "image": "image-url.jpg"
 }
+
+
 
 login teacher or headmaster
 pass --> headers--> authorization of the login headmaster or teacher

@@ -8,19 +8,25 @@ import { Model } from 'mongoose';
 export class TeacherService {
     constructor(@InjectModel(Teacher.name) private teacherModel: Model<TeacherDocument>) { }
     // for create teacher
-    // async createTeacher(data:Partial<Teacher>):Promise<{message:string;teacher:Teacher}>{
-    //     try {
-    //           if(data.password)data.password = await bcrypt.hash(data.password, 10);
-    //           if(data.userName) data.userName = data.userName.toUpperCase();
+//     async createTeacher(data:Partial<Teacher>):Promise<{message:string;teacher:Teacher}>{
+//         try {
+//             if(data.userName) data.userName = data.userName.toUpperCase();
+//             if(data.password)data.password = await bcrypt.hash(data.password, 10);
 
-    //         const newTeacher = new this.teacherModel(data);
-    //         const savedTeacher = await newTeacher.save();
-    //         if(!savedTeacher) throw new Error('Failed to create teacher');
-    //         return {message:'Teacher created successfully',teacher:savedTeacher};        
-    //     } catch (error) {
-    //             throw new Error(error);
-    //     }
-    // }
+//             const newTeacher = new this.teacherModel(data);
+// if (data.userName && data.userName.trim() !== '') {
+//     data.userName = data.userName.toUpperCase();
+// } else {
+//     throw new Error('Username is required and cannot be empty.');
+// }
+//             console.log(newTeacher);
+//             const savedTeacher = await newTeacher.save();
+//             if(!savedTeacher) throw new Error('Failed to create teacher');
+//             return {message:'Teacher created successfully',teacher:savedTeacher};        
+//         } catch (error) {
+//                 throw new Error(error);
+//         }
+//     }
 
     async createTeacher(data: Partial<Teacher>): Promise<{ message: string; teacher: Teacher }> {
         try {
@@ -43,9 +49,10 @@ export class TeacherService {
             }
 
             if (data.password) data.password = await bcrypt.hash(data.password, 10);
-            if (data.userName) data.userName = data.userName.toUpperCase();
             const newTeacher = new this.teacherModel(data);
             const savedTeacher = await newTeacher.save();
+            console.log(savedTeacher)
+
 
             if (!savedTeacher) throw new Error('Failed to create teacher');
 
@@ -55,6 +62,7 @@ export class TeacherService {
             throw new Error(error.message || 'An error occurred while creating the teacher');
         }
     }
+
 
     // get all teacher
     async getAllTeacher(): Promise<Teacher[]> {

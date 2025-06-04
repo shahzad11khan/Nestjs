@@ -5,7 +5,7 @@ export type TeacherDocument = Teacher & Document;
 
 @Schema({ timestamps: true })
 export class Teacher {
-    @Prop({ required: true })
+  @Prop({ required: true })
     userName: string;
     @Prop({ required: true })
     email: string;
