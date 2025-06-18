@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { AttendanceModule } from './attendance/attendance.module';
 import { ClassModule } from './class/class.module';
 import { HomeworkModule } from './homework/homework.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { HomeworkModule } from './homework/homework.module';
     AttendanceModule,
     ClassModule,
     HomeworkModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

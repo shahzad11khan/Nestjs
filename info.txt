@@ -36,13 +36,13 @@ http://localhost:3000/teacher
 
 
 {
-  "userName": "shahzad khan",
-  "email": "shahzadk@example.com",
+  "userName": "shahzad",
+  "email": "shahzadkhan@example.com",
   "password": "12345678",
-  "cnic": "13345-6880992-7",
+  "cnic": "13345-6830992-7",
   "phoneNumber": "03001234567",
-  "classId": "class124",
-  "ClassName": "Grade 6",
+  "classId": "23",
+  "ClassName": "Grade 5",
   "section": "B",
   "salary": "50000",
   "status": "active",
@@ -51,6 +51,7 @@ http://localhost:3000/teacher
   "accountNumber": "1234567890123",
   "image": "image-url.jpg"
 }
+
 
 
 
@@ -105,6 +106,13 @@ http://localhost:3000/attendance/allAttendance --> first login teacher
 
 http://localhost:3000/class  --> first login headmaster
 
+
+http://localhost:3000/upload/image
+Using form-data:
+
+Key: file
+
+Value: (Select your image file)
 
 
 
