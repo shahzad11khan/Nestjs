@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { TeacherService } from './teacher.service';
 import { Teacher } from './schema/teacher.schema';
 import { AuthGuard } from 'src/guard/auth/auth.guard';
@@ -34,5 +34,10 @@ export class TeacherController {
     async updateTeacherById(@Req() req: Request, @Param('id') id: string, @Body() data: Partial<Teacher>): Promise<{ message: string; teacher: Teacher | null }> {
         return this.teacherService.updateTeacherById(id, data);
     }
+   @UseGuards(AuthGuard)
+   @Delete(':id')
+  async deleteUser(@Param('id') id: string) {
+    return this.teacherService.deleteUser(id);
+  }
 
 }

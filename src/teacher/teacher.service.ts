@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { Teacher, TeacherDocument } from './schema/teacher.schema';
@@ -92,4 +92,13 @@ export class TeacherService {
         }
 
     }
+
+    // delete teacher by id
+    async deleteUser(id: string) {
+    const result = await this.teacherModel.findByIdAndDelete(id);
+    if (!result) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+    return { message: `User with ID ${id} deleted successfully` };
+  }
 }
