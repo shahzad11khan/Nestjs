@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards,Req, Get } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards,Req, Get, Delete, Param } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { Student } from './schema/student.schema';
 import { AuthGuard } from 'src/guard/auth/auth.guard';
@@ -33,4 +33,11 @@ export class StudentController {
     async getStudentByClassId(@Req() req:Request):Promise<Student[]>{
         return await this.studentService.getStudentByClassId(req['user'].classId);
     }  
+
+    // delete student by id
+       @UseGuards(AuthGuard)
+       @Delete(':id')
+      async deleteUser(@Param('id') id: string) {
+        return this.studentService.deleteStudent(id);
+      }
 }
