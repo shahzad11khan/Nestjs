@@ -12,10 +12,7 @@ export class StudentController {
     async addStudent(@Body() data:Partial<Student>,@Req() req:Request){
           const teacherId = req['user'].userId;
           const teacherName = req['user'].userName;
-          const classId = req['user'].classId;
-          const className = req['user'].className;
-          data.class=className;
-          data.classId=classId;
+          console.log(teacherId,teacherName)
           data.teacherId=teacherId;
           data.teacher=teacherName;
         return this.studentService.createStudent(data);
